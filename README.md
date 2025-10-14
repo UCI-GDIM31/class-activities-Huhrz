@@ -8,7 +8,8 @@ Create future Devlog sub-headers with the three # symbols, then write your Devlo
 because the scale of RGB color is from 0.0 to 1.0, it contains decimals.
 because the number of bouncing time must be integral.
 we must add semicolen after a code line or we must add f after the quantity while changing the float variable.
-
+### W3
+the player’s dialogue choice as a string or int, the player’s friendship level with the character as an int or float, and a boolean flag indicating whether the player knows the character’s secret. It should return a string containing the character’s dialogue response.
 ## Open-Source Assets
 ### W1
 - Animals: https://assetstore.unity.com/packages/3d/characters/animals/animals-free-animated-low-poly-3d-models-260727 
