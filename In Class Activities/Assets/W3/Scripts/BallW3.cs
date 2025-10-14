@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class BallW3
+public class BallW3 : MonoBehaviour
 {
     public SpriteRenderer ballRenderer;
     private Rigidbody2D _rigidbody;
@@ -24,7 +24,7 @@ public class BallW3
         //      of _speedMultiplier. TUNE that value in the Inspector and see
         //      what happens!
 
-        //rigidbody.linearvelocity *= speedmultiplier;
+        _rigidbody.linearvelocity *= _speedMultiplier;
 
         // STEP 1 -------------------------------------------------------------
 
