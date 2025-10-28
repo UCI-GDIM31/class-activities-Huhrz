@@ -20,6 +20,12 @@ Line 25: This line is calling a method named Translate() from the Transform Comp
 
 1.I added Rigidbody components to both the Cat and the SoccerBall, because those objects need to move and respond to physics. The Goal didn’t need a Rigidbody since it stays still. We also checked Is Trigger on the Goal’s BoxCollider, so the ball could pass through it and still detect when it scored.
 2.The first time I tested the game, the ball didn’t detect the goal correctly because the OnTriggerEnter method wasn’t being called. I realized the collider name had the wrong capitalization .After fixing that and adjusting the collider sizes, everything worked.
+### W5
+How does GetComponent<>() actually find the specific component on a GameObject — does it search through all components every time, or is it stored in memory after the first call?
+
+GetComponent<>() searches through all the components attached to the GameObject each time it’s called. That means it’s a bit slow if used repeatedly in Update(). To make it faster, developers usually call it once in Start() or Awake(), store the result in a variable, and then reuse that variable later.
+
+Plan: Deer has component of NavMeshAgent use to find way in terrain, use Getcomponent<> to set NavmeshAgent to NevMeshAgent agent variable so that i can use it on Start() then use agent.Setdesintation to set a destination for deer which is transform target variable set his position to Deer's destination to make it move towards to the cat.
 ## Open-Source Assets
 ### W1
 - Animals: https://assetstore.unity.com/packages/3d/characters/animals/animals-free-animated-low-poly-3d-models-260727 
