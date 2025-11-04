@@ -26,6 +26,38 @@ How does GetComponent<>() actually find the specific component on a GameObject �
 GetComponent<>() searches through all the components attached to the GameObject each time it’s called. That means it’s a bit slow if used repeatedly in Update(). To make it faster, developers usually call it once in Start() or Awake(), store the result in a variable, and then reuse that variable later.
 
 Plan: Deer has component of NavMeshAgent use to find way in terrain, use Getcomponent<> to set NavmeshAgent to NevMeshAgent agent variable so that i can use it on Start() then use agent.Setdesintation to set a destination for deer which is transform target variable set his position to Deer's destination to make it move towards to the cat.
+### W6
+https://docs.google.com/document/d/1I9v9DLgH_h1Npt-SvcE6Rrcdn8rclMwmf5H-zmU4f14/edit?usp=sharing
+General C# coding (Week 2) & W3 schools tutorials;
+{} If statements, for loops, methods
+Variables
+Class (Week 2)
+int
+float
+bool
+String
+Component
+NavMesh
+Rigidbody
+Collider
+Method
+if(), else, else if() (Week2) 
+return()
+Loops =>(minigame #5) (Week 6 pre learning)
+Arrays (Week 6 pre learning)
+Operator (week2)
+&&(and)
+|| (or)
+1.Member variables
+A float speed  → how fast the bat moves.
+A Transform target → the Cat/player to chase.
+A bool isChasing → remembers if the bat should move or not.
+2.Update method
+In Update(), check: if (isChasing && target != null)
+If true, move the bat toward target.position with Vector3.MoveTowards using speed * Time.deltaTime.
+3.Control methods
+public void StartChasing() → set isChasing = true;
+public void StopChasing() → set isChasing = false;
 ## Open-Source Assets
 ### W1
 - Animals: https://assetstore.unity.com/packages/3d/characters/animals/animals-free-animated-low-poly-3d-models-260727 
