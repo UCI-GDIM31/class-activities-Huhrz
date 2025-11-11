@@ -46,7 +46,12 @@ public class MuskratW7 : MonoBehaviour
         // You might want to look below Step 3 for an example :D
         
         float leftright = Input.GetAxis("Horizontal");
-        
+        Vector3 Up = transform.TransformDirection(Vector3.up);
+        transform.RotateAround(
+            _sphereTransform.position,
+            Up,
+            leftright * _rotationSpeed * Time.deltaTime
+        );
 
 
         // STEP 3 -------------------------------------------------------------
@@ -65,7 +70,12 @@ public class MuskratW7 : MonoBehaviour
         //      the Muskrat.
         // The Muskrat should never play the "flying" animation while on a
         //      bubble.
-
+        float inputX = Input.GetAxisRaw("Horizontal"); 
+        float inputY = Input.GetAxisRaw("Vertical"); 
+        float inputAmount = new Vector2(inputX, inputY).magnitude;
+        bool isRunning = inputAmount > 0.1f;
+        _animator.SetBool("running", isRunning);
+        _animator.SetBool("flying", false);
 
         // STEP 5 -------------------------------------------------------------
     }
@@ -87,6 +97,7 @@ public class MuskratW7 : MonoBehaviour
 
         float leftright = Input.GetAxis("Horizontal");
 
+        transform.Rotate(leftright * Vector3.up * _rotationSpeed * Time.deltaTime);
         // STEP 1 -------------------------------------------------------------
 
 
@@ -96,7 +107,7 @@ public class MuskratW7 : MonoBehaviour
         // This line of code is incorrect. 
         // Replace it with a different line of code that uses 'movement' to
         //      move the Muskrat forwards and backwards.
-        transform.position += movement * Vector3.forward * _moveSpeed * Time.deltaTime;
+        transform.position += movement * transform.forward * _moveSpeed * Time.deltaTime;
 
         // STEP 2 -------------------------------------------------------------
 
@@ -107,6 +118,14 @@ public class MuskratW7 : MonoBehaviour
         // Use _rigidbody.linearVelocity.
         // You may also find the absolute value method, Mathf.Abs(), helpful:
         //      https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Mathf.Abs.html
+        Vector3 v = _rigidbody.linearVelocity;
+        bool isRunning = Mathf.Abs(v.x) > 0f;
+        bool isFlying = Mathf.Abs(v.y) > 0.1f;
+
+        _animator.SetBool("running", isRunning);
+        _animator.SetBool("flying",isFlying);
+
+
 
         
         // STEP 4 -------------------------------------------------------------

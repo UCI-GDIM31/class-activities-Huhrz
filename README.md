@@ -58,6 +58,12 @@ If true, move the bat toward target.position with Vector3.MoveTowards using spee
 3.Control methods
 public void StartChasing() → set isChasing = true;
 public void StopChasing() → set isChasing = false;
+### W7
+https://docs.google.com/document/d/1pVQF8OAxJPUS-FvcqORq1R6zN29-Wx7oRm__EkzzC70/edit?usp=sharing
+
+it used Vector3.forward instead of the Muskrat’s own facing direction. That means the character would keep walking in the same world direction at a constant speed even if the player wasn’t pressing W/S (or wanted to go backward), and its movement might not match where it was looking after it rotated. 
+
+
 ## Open-Source Assets
 ### W1
 - Animals: https://assetstore.unity.com/packages/3d/characters/animals/animals-free-animated-low-poly-3d-models-260727 
